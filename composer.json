@@ -1,0 +1,108 @@
+{
+    "name": "tryte/villahide",
+    "description": "villahide.ru website",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Igor Klipach",
+            "email": "klipach@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-theme-bestel.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-theme-bestel-child.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-plugin-bestel-core.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-plugin-bastel-review.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-plugin-bestel-demo-installer.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-plugin-hotel-booking.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-plugin--hotel-booking-booking-room.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-plugin-hotel-booking-woocommerce-modify.git"
+        },
+        {
+            "type": "git",
+            "url": "git@github.com:villahide/wp-plugin-wpbakery.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wordpress/wordpress",
+                "type": "wordpress-plugin",
+                "version": "5.6.2",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://ru.wordpress.org/wordpress-5.6.2-ru_RU.zip"
+                },
+                "require": {
+                    "composer/installers": "~1.0"
+                }
+            }
+        }
+    ],
+    "require": {
+        "wordpress/wordpress": "~5.6.0",
+        "wpackagist-plugin/all-in-one-seo-pack": "~4.0",
+        "wpackagist-plugin/autoptimize": "~2.0",
+        "wpackagist-plugin/cyr2lat": "~4.1",
+        "wpackagist-plugin/email-address-encoder": "^1.0",
+        "wpackagist-plugin/regenerate-thumbnails": "^3.0",
+        "wpackagist-plugin/classic-editor": "^1.5",
+        "wpackagist-plugin/tinymce-advanced": "~5.0",
+        "wpackagist-plugin/contact-form-7": "^5.4",
+        "wpackagist-plugin/elementor": "^3.1",
+        "wpackagist-plugin/meta-box": "^5.3",
+        "wpackagist-plugin/redux-framework": "^4.1",
+        "wpackagist-plugin/woocommerce": "^5.1",
+        "wpackagist-plugin/mailchimp-for-wp": "^4.8",
+        "bestel/bestel-core": "dev-master",
+        "bestel/bestel": "dev-master",
+        "bestel/bastel-review": "dev-master",
+        "tryte/bestel-child": "dev-master",
+        "tryte/wp-hotel-booking": "dev-master",
+        "tryte/wp-hotel-booking-booking-room": "dev-master",
+        "tryte/wp-hotel-booking-woocommerce-modify": "dev-master",
+        "tryte/js_composer": "dev-master"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "bestel/bestel-demo-installer": "dev-master"
+    },
+    "extra": {
+        "installer-paths": {
+            "wp": ["wordpress/wordpress"],
+            "content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "content/themes/{$name}/": ["type:wordpress-theme"]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cp -r wp/wp-content/languages content/languages"
+        ]
+    }
+}

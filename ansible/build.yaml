@@ -1,0 +1,55 @@
+---
+- hosts: localhost
+  vars_files:
+    - vars.yaml
+
+  tasks:
+    - set_fact: tar="tar"
+    - set_fact: tar="gtar"
+      when: ansible_os_family == "Darwin"
+
+    - debug: msg="Building version - {{ tag }}"
+
+    - name: Composer install
+      composer:
+        command: install
+        no_dev: true
+        working_dir: '{{ build_path }}'
+
+    - name: Create version.json file, with current version
+      lineinfile:
+        dest: '{{ build_path }}/version.json'
+        line: '{{ version|to_json }}'
+        create: true
+
+    - name: Create config file
+      template:
+        src: './local-config.php.j2'
+        dest: '{{ build_path }}/local-config.php'
+
+    - name: Precreate archive to avoid "file changed as we read it"
+      file:
+        path: '{{ build_path }}/{{ tag }}.tar.gz'
+        state: touch
+
+    - name: Build {{ tag }}.tar.gz archive
+      environment:
+        COPYFILE_DISABLE: true # special fix for MacOS
+      command: >
+        {{ tar }}
+        --exclude='.git'
+        --exclude='.gitignore'
+        --exclude='./ansible'
+        --exclude='./migration'
+        --exclude='./bitbucket-pipelines.yml'
+        --exclude='./composer.json'
+        --exclude='./composer.lock'
+        --exclude='./content/uploads'
+        --exclude='./docker'
+        --exclude='./docker-compose.yml'
+        --exclude='./readme.md'
+        --exclude='./vendor'
+        --exclude='*DS_Store'
+        --exclude='./{{ tag }}.tar.gz'
+        -czf ./{{ tag }}.tar.gz ./
+        chdir={{ build_path }}

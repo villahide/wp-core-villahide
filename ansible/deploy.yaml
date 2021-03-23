@@ -1,0 +1,34 @@
+---
+- hosts: villahide
+  vars_files:
+    - vars.yaml
+
+  tasks:
+    - set_fact: now="{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
+
+    - name: Ensure release directory exists
+      file: path={{ release_path }} state=directory owner={{ site_user }} group={{ site_group }}
+
+    - name: Upload source archive and unachive
+      unarchive: src={{ build_path }}/{{ tag }}.tar.gz dest={{ release_path }}
+
+    - name: Link media folder
+      file: src={{ media_path }} path={{ release_path }}/content/uploads state=link owner={{ site_user }}
+
+    - name: Create config file
+      template: src=./local-config.php.j2 dest={{ release_path }}/local-config.php force=true
+
+    - name: Dump current database
+      command: "mysqldump -u{{ db_user }} -p{{ db_pass }} {{ db_name }} --result-file={{ app_path }}/{{ db_name }}.sql"
+
+    - name: Remove link to old version
+      file: path={{ app_path }} state=absent
+
+    - name: Update app version
+      file: src={{ release_path }} path={{ app_path }} state=link owner={{ site_user }} group={{ site_group }}
+
+    - name: Set right permissions
+      file: path={{ release_path }} state=directory recurse=yes owner={{ site_user }} group={{ site_group }}
+
+    - name: Leave only N last releases
+      shell: "cd {{ releases_path }} && find ./ -maxdepth 1 | grep -G .............. | sort -r | tail -n +{{ keep_releases }} | xargs rm -rf"

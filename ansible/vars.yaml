@@ -1,0 +1,19 @@
+build_path: "../build"
+repo: git@github.com:villahide/wp-core-villahide.git
+keep_releases: 4
+db_user: villahide
+db_pass: 9U4h1W1z
+db_name: villahide
+db_host: localhost
+site_user: villahide.ru
+site_group: villahide.ru
+root_path: "/var/www/villahide.ru/data/www"
+releases_path: "{{ root_path }}/releases"
+release_path: "{{ releases_path }}/{{ now }}"
+app_path: "{{ root_path }}/villahide.ru"
+media_path: "{{ root_path }}/uploads"
+now: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
+tag: main
+version:
+  date: "{{ now }}"
+  version: "{{ tag }}"

@@ -1,0 +1,5 @@
+villahide:
+  hosts:
+    host:
+      ansible_host: 139.162.163.5
+      ansible_user: villahide.ru

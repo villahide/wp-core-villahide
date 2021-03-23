@@ -1,0 +1,11 @@
+/local-config.php
+/wp
+/content
+data/villahide*.sql
+/vendor
+build
+.DS_Store
+.idea
+*.tar.gz
+*.retry
+version.json

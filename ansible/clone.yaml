@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  vars_files:
+      - vars.yaml
+
+  tasks:
+    - name: Remove build directory
+      file:
+        path: '{{ build_path }}'
+        state: absent
+
+    - name: Clone repo
+      git:
+        repo: '{{ repo }}'
+        dest: '{{ build_path }}'
+        version: '{{ tag }}'
+        depth: 10
