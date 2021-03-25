@@ -48,25 +48,10 @@
         {
             "type": "git",
             "url": "git@github.com:villahide/wp-plugin-wpbakery.git"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "wordpress/wordpress",
-                "type": "wordpress-plugin",
-                "version": "5.6.2",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://ru.wordpress.org/wordpress-5.6.2-ru_RU.zip"
-                },
-                "require": {
-                    "composer/installers": "~1.0"
-                }
-            }
         }
     ],
     "require": {
-        "wordpress/wordpress": "~5.6.0",
+        "johnpbloch/wordpress": "~5.6.0",
         "wpackagist-plugin/all-in-one-seo-pack": "~4.0",
         "wpackagist-plugin/autoptimize": "~2.0",
         "wpackagist-plugin/cyr2lat": "~5.0",
@@ -85,7 +70,8 @@
         "tryte/wp-hotel-booking": "dev-master",
         "tryte/wp-hotel-booking-booking-room": "dev-master",
         "tryte/wp-hotel-booking-woocommerce-modify": "dev-master",
-        "tryte/js_composer": "dev-master"
+        "tryte/js_composer": "dev-master",
+        "bjornjohansen/wplang": "^0.1.1"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
@@ -93,14 +79,11 @@
     },
     "extra": {
         "installer-paths": {
-            "wp": ["wordpress/wordpress"],
             "content/plugins/{$name}/": ["type:wordpress-plugin"],
             "content/themes/{$name}/": ["type:wordpress-theme"]
-        }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "cp -r wp/wp-content/languages content/languages"
-        ]
+        },
+        "wordpress-languages": [ "ru_RU" ],
+        "wordpress-language-dir": "content/languages",
+        "wordpress-install-dir": "wp"
     }
 }
