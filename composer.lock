@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7975c56c7ace477d23b43437eca66845",
+    "content-hash": "9528bc5040b797c40ca2a9fbdfc75bd2",
     "packages": [
         {
             "name": "bestel/bastel-review",
@@ -354,24 +354,6 @@
             "homepage": "https://wordpress.org/plugins/autoptimize/"
         },
         {
-            "name": "wpackagist-plugin/classic-editor",
-            "version": "1.6",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/classic-editor/",
-                "reference": "tags/1.6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/classic-editor.1.6.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/classic-editor/"
-        },
-        {
             "name": "wpackagist-plugin/contact-form-7",
             "version": "5.4",
             "source": {
@@ -391,15 +373,15 @@
         },
         {
             "name": "wpackagist-plugin/cyr2lat",
-            "version": "4.6.4",
+            "version": "5.0.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/cyr2lat/",
-                "reference": "tags/4.6.4"
+                "reference": "tags/5.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/cyr2lat.4.6.4.zip"
+                "url": "https://downloads.wordpress.org/plugin/cyr2lat.5.0.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -516,24 +498,6 @@
             "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
         },
         {
-            "name": "wpackagist-plugin/tinymce-advanced",
-            "version": "5.6.0",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/tinymce-advanced/",
-                "reference": "tags/5.6.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tinymce-advanced.5.6.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/tinymce-advanced/"
-        },
-        {
             "name": "wpackagist-plugin/woocommerce",
             "version": "5.1.0",
             "source": {
@@ -569,7 +533,7 @@
                 "proprietary"
             ],
             "description": "Bestel Core Theme demo data installer",
-            "time": "2021-03-23T11:10:47+00:00"
+            "time": "2021-03-23T11:12:14+00:00"
         },
         {
             "name": "roave/security-advisories",

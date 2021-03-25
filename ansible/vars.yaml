@@ -13,7 +13,7 @@ release_path: "{{ releases_path }}/{{ now }}"
 app_path: "{{ root_path }}/villahide.ru"
 media_path: "{{ root_path }}/uploads"
 now: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
-tag: main
+tag: master
 version:
   date: "{{ now }}"
   version: "{{ tag }}"

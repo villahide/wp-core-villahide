@@ -1,7 +1,7 @@
 /local-config.php
 /wp
 /content
-data/villahide*.sql
+/data
 /vendor
 build
 .DS_Store
